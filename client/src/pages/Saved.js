@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import Title from "../../components/Title";
+import Title from "../components/Title";
 // import DeleteBtn from "../../components/DeleteBtn";
-import API from "../../utils/API";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Search";
+import API from "../utils/API";
+import { Col, Row, Container } from "../components/Grid";
+import { List, ListItem } from "../components/List";
 
 class Saved extends Component {
   // Setting our component's initial state
