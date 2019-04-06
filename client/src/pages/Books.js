@@ -5,18 +5,19 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Search";
+// import Nav from "../components/Nav";
 
 class Books extends Component {
   // Setting our component's initial state
   state = {
     books: [],
+    id: "",
     title: "",
     author: "",
     description: "",
     image: "",
     link: "",
-    saved: "",
-    id: ""
+    saved: ""
   };
 
   // When the component mounts, load all books and save them to this.state.books
@@ -40,14 +41,14 @@ class Books extends Component {
 //       .catch(err => console.log(err));
 //   };
 
-    saveBook = (id, title, description, author, link, image) => {
+    saveBook = (id, title, author, description, link, image) => {
     API.saveBook({
-        bookId: id, title: title, description: description, author: author, link: link, image: image, saved: true
+        id: id, title: title, author: author,description: description, link: link, image: image, saved: true
     }).then(res => {
         console.log(res.data);
     })
         .catch(err => console.log(err));
-}
+};
 
   // Handles updating component state when the user types into the input field
   handleInputChange = event => {
@@ -75,9 +76,10 @@ class Books extends Component {
   render() {
     return (
       <div>
+        {/* <Nav/> */}
         <Title>
           <h1>BookShelf</h1>
-          <h6>Discover new books and save to your own online bookshelf</h6>
+          <h4>Discover new books and save them to your own online bookshelf</h4>
         </Title>
         <Container>
           <Row>
@@ -89,6 +91,7 @@ class Books extends Component {
                   name="search"
                   placeholder="Enter Book Title"
                 />
+                <br/>
                 <FormBtn
                   disabled={!this.state.search}
                   onClick={this.handleFormSubmit}
@@ -103,7 +106,7 @@ class Books extends Component {
           <Row>
             <Col size="md-12">
                 {!this.state.books.length ? (
-                  <h4>Hmmm...Try Another Search</h4>
+                  <h4>Search for a new book</h4>
                   ) : (
                     <List>
                         {this.state.books.map(book => (
@@ -111,7 +114,7 @@ class Books extends Component {
                           key={book.id}
                           id={book.id}
                           title={book.volumeInfo.title}
-                          description={(!book.searchInfo) ? "No Info Available" : book.searchInfo.textSnippet}
+                          description={book.volumeInfo.description}
                           author={(!book.volumeInfo.authors) ? "No Author Info Available" : book.volumeInfo.authors[0]}
                           link={book.volumeInfo.infoLink}
                           image={(!book.volumeInfo.imageLinks) ? "https://fillmurray.com/150/200" : book.volumeInfo.imageLinks.thumbnail}

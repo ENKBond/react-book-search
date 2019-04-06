@@ -1,0 +1,7 @@
+.jumbotron {
+    background-image: url("/assets/books.jpg");
+    color: white;
+    text-shadow: 1px 1px black;
+    font-family: 'Volkhov', serif;
+}
+

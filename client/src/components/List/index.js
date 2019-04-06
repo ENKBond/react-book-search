@@ -24,7 +24,7 @@ export function ListItem(props) {
           <Col size="md-6">
             <h6>{props.title}</h6>
             <p><span>{props.author}</span></p>
-            { props.synopsys ? <p>Synopsis: {props.synopsys}</p> : <p>No Info Available</p>}
+            { props.description ? <p>{props.description}</p> : <p>No Info Available</p>}
           </Col>
           <Col size="md-3">
             <a
