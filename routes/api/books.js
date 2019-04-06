@@ -16,8 +16,8 @@ router.route("/")
     .get(booksController.findAll)
     .post(booksController.create);
 
-router.route("/saved")
-    .get(booksController.findAll);
+// router.route("/saved")
+//     .get(booksController.findAll);
 
 router.route("/:id")
     .delete(booksController.remove);
