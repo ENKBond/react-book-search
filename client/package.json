@@ -5,6 +5,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "express": "^4.16.3",
     "mongodb": "^3.2.3",
     "mongoose": "^5.4.22",
     "react": "^16.6.3",
