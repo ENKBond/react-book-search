@@ -35,20 +35,20 @@ class Books extends Component {
 //   };
 
   // Deletes a book from the database with a given id, then reloads books from the db
-//   deleteBook = id => {
-//     API.deleteBook(id)
-//       .then(res => this.loadBooks())
-//       .catch(err => console.log(err));
-//   };
+  deleteBook = id => {
+    API.deleteBook(id)
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err.response));
+  };
 
-    saveBook = (id, title, author, description, link, image) => {
-    API.saveBook({
-        id: id, title: title, author: author,description: description, link: link, image: image, saved: true
-    }).then(res => {
-        console.log(res.data);
-    })
-        .catch(err => console.log(err));
-};
+  saveBook = (id, title, author, description, image, link) => {
+  API.saveBook({
+      bookId: id, title: title, author: author, description: description, image: image, link: link, saved: true
+  }).then(res => {
+      console.log(res.data);
+  })
+      .catch(err => console.log(err.response));
+}
 
   // Handles updating component state when the user types into the input field
   handleInputChange = event => {

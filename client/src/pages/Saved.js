@@ -89,12 +89,12 @@ class Saved extends Component {
                             <ListItem
                             key={book.id}
                             id={book.id}
-                            title={book.volumeInfo.title}
-                            description={(!book.searchInfo) ? "No Info Available" : book.searchInfo.textSnippet}
-                            author={(!book.volumeInfo.authors) ? "No Author Info Available" : book.volumeInfo.authors[0]}
-                            link={book.volumeInfo.infoLink}
-                            image={(!book.volumeInfo.imageLinks) ? "https://fillmurray.com/150/200" : book.volumeInfo.imageLinks.thumbnail}
-                            saved = {this.saved}
+                            title={book.title}
+                            author={book.author}
+                            description={book.description}
+                            link={book.link}
+                            image={book.image}
+                            saved = {book.saved}
                             deleteBook = {this.deleteBook}
                             >
                             </ListItem>

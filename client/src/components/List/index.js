@@ -35,9 +35,9 @@ export function ListItem(props) {
             >
             View
             </a>
-            {(props.saveState === undefined) ? <button
+            {(props.saved === undefined) ? <button
               className="btn btn-success float-right mr-3"
-              onClick={ e => props.saveBook(props.id, props.title, props.description, props.author, props.link, props.image)}
+              onClick={ () => props.saveBook(props.id, props.title, props.description, props.author, props.link, props.image, props.saved)}
             >
             Save
             </button> : 
